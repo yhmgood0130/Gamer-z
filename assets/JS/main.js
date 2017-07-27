@@ -134,12 +134,7 @@ $(document).ready(function() {
 
 
   $('#cart').click(function(){
-    let consoleType;
-
     cartDisplay();
-
-
-
   })
 
   $(document).on('change','#counter',function() {
@@ -148,14 +143,9 @@ $(document).ready(function() {
     let id = $(this).closest("#game-list").children().attr("id");
 
     $.ajax({
-      url:"http://localhost:8080/product/" + id,
+      url:"https://afternoon-bastion-62299.herokuapp.com/product/product/" + id,
       type:"PUT",
-      data:{quantity},
-      success: function(data){
-        alert(Data + "Achtung!!!")
-      }
-
-
+      data:{quantity}
     })
   })
 
@@ -169,7 +159,7 @@ $(document).ready(function() {
     let url = $(this).prevAll('#title-image').attr('src');
     var prices = $(this).prevAll('#title-price').text().match(numberPattern)
 
-    $.get("http://localhost:8080/product/cart",function(data){
+    $.get("https://afternoon-bastion-62299.herokuapp.com/product/cart",function(data){
       for (var i = 0; i < data.length; i++) {
         let id = data[i].id;
 
@@ -177,13 +167,10 @@ $(document).ready(function() {
           number = data[i].quantity + 1;
           console.log("SECOND", id);
           $.ajax({
-            url:"http://localhost:8080/product/" + id,
+            url:"https://afternoon-bastion-62299.herokuapp.com/product/product/" + id,
             type:"PUT",
             data:{
               quantity:number
-            },
-            success: function(data){
-              alert(Data + "Achtung!!!")
             }
            })
            exist = true;
@@ -191,17 +178,14 @@ $(document).ready(function() {
       }
 
       if(!exist){
-        $.post("http://localhost:8080/product",
+        $.post("https://afternoon-bastion-62299.herokuapp.com/product/product",
         {
           title:title,
           platform:platform,
           price:price,
           url:url,
           quantity:1
-        },
-        function(data,status){
-          alert("Data: " + data + "\nStatus: " + status);
-        })
+        }
       }
 
     })
@@ -210,12 +194,8 @@ $(document).ready(function() {
   $("#game-list").on('click', '#deleteItem',function(){
 
     $.ajax({
-      url:"http://localhost:8080/product/" + $(this).parent().parent().before().attr('id'),
-      type: 'DELETE',
-      success: function(result)
-      {
-        console.log("YES!!!");
-      }
+      url:"https://afternoon-bastion-62299.herokuapp.com/product/product/" + $(this).parent().parent().before().attr('id'),
+      type: 'DELETE'
     })
 
     window.setTimeout(function(){cartDisplay();},1000);
@@ -225,7 +205,7 @@ $(document).ready(function() {
 })
 
 function cartDisplay(){
-$.get('http://localhost:8080/product/cart', function(data){
+$.get('https://afternoon-bastion-62299.herokuapp.com/product/product/cart', function(data){
   $("#game-list").empty();
 for (var i = 0; i < data.length; i++) {
   var dynamic = "";
