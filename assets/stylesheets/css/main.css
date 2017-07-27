@@ -3,6 +3,10 @@
   width: 90%
 }
 
+.row-height{
+  min-height: 42em;
+}
+
 #game-list p {
   font-size: 1.5em;
 }
