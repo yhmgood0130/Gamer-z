@@ -178,7 +178,7 @@ $(document).ready(function() {
           quantity:1
         },
         function(data,status){
-          alert("Data: " + data + "\nStatus: " + status);
+          alert("This item has been added to your cart.");
         })
       }
 
