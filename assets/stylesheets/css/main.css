@@ -10,3 +10,18 @@
 #game-list p {
   font-size: 1.5em;
 }
+
+.cart-box{
+  min-height: 42em;
+  margin-bottom: 4em;
+}
+
+.input-box{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.input-container{
+  position: relative;
+}
