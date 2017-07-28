@@ -142,8 +142,7 @@ $(document).ready(function() {
     let exist = false;
     let title = $(this).prevAll('#title-name').text();
     let platform = $(this).parent().before().attr('id');
-    var prices = $(this).prevAll('#title-price').text().match(numberPattern)
-    let price = parseFloat(prices);
+    let price = $(this).prevAll('#title-price').text().match(numberPattern)
     console.log(price);
     let url = $(this).prevAll('#title-image').attr('src');
 
@@ -173,7 +172,7 @@ $(document).ready(function() {
         {
           title:title,
           platform:platform,
-          price:price,
+          price:prices,
           url:url,
           quantity:1
         },
