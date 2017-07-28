@@ -142,8 +142,7 @@ $(document).ready(function() {
     let exist = false;
     let title = $(this).prevAll('#title-name').text();
     let platform = $(this).parent().before().attr('id');
-    let price = $(this).prevAll('#title-price').text().match(numberPattern)
-    console.log(price);
+    let price = parseFloat($(this).prevAll('#title-price').text().match(numberPattern));
     let url = $(this).prevAll('#title-image').attr('src');
 
     $.get("https://afternoon-bastion-62299.herokuapp.com/product/cart",function(data){
@@ -168,11 +167,12 @@ $(document).ready(function() {
       }
 
       if(!exist){
+        console.log("WORKING");
         $.post("https://afternoon-bastion-62299.herokuapp.com/product",
         {
           title:title,
           platform:platform,
-          price:prices,
+          price:price,
           url:url,
           quantity:1
         },
