@@ -186,8 +186,10 @@ $(document).ready(function() {
 
   $("#game-list").on('click', '#deleteItem',function(){
 
+    let id = $(this).parent().parent().before().attr('id')
+
     $.ajax({
-      url:"https://afternoon-bastion-62299.herokuapp.com/product/" + $(this).parent().parent().before().attr('id'),
+      url:"https://afternoon-bastion-62299.herokuapp.com/product/" + id,
       type: 'DELETE',
       success: function(result)
       {
@@ -195,7 +197,8 @@ $(document).ready(function() {
       }
     })
 
-    window.setTimeout(function(){cartDisplay();},1000);
+    $(`#${id}`).fadeOut()
+    // window.setTimeout(function(){cartDisplay();},1000);
 
   })
 
