@@ -121,9 +121,8 @@ $(document).ready(function() {
   })
 
   $(document).on('change','#counter',function() {
-    var quantity = parseInt($(this).children("option:selected").text());
-    console.log(quantity);
-    let id = $(this).closest("#game-list").children().attr("id");
+    let quantity = parseInt($(this).children("option:selected").text());
+    let id = $(this).parents('.cart-box').before().attr('id');
 
     $.ajax({
       url:"https://afternoon-bastion-62299.herokuapp.com/product/" + id,
@@ -142,10 +141,11 @@ $(document).ready(function() {
     let number;
     let exist = false;
     let title = $(this).prevAll('#title-name').text();
-    let platform =$(this).parent().before().attr('id');
-    let price = parseFloat(prices);
-    let url = $(this).prevAll('#title-image').attr('src');
+    let platform = $(this).parent().before().attr('id');
     var prices = $(this).prevAll('#title-price').text().match(numberPattern)
+    let price = parseFloat(prices);
+    console.log(price);
+    let url = $(this).prevAll('#title-image').attr('src');
 
     $.get("https://afternoon-bastion-62299.herokuapp.com/product/cart",function(data){
       for (var i = 0; i < data.length; i++) {
