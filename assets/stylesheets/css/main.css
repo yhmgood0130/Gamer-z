@@ -1,6 +1,6 @@
 .title-image{
-  height: 26em;
-  width: 90%
+  height: 22em;
+  width: 100%
 }
 
 .row-height{
@@ -25,3 +25,14 @@
 .input-container{
   position: relative;
 }
+
+@media (min-width: 576px) and (max-width: 767px) {
+ }
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .title-image{
+    height: 14em;
+    width: 100%
+  }
+ }

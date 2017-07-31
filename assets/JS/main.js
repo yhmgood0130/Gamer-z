@@ -2,6 +2,13 @@ const loading = document.querySelector('.loading');
 
 $(document).ready(function() {
 
+  displayAll();
+
+  $(document).on('click', '.nav-sidebar li', function() {
+       $(".nav-sidebar li").removeClass("active");
+       $(this).addClass("active");
+   });
+
 
     $("#search").keypress(function(event) {
       let name;
@@ -9,6 +16,8 @@ $(document).ready(function() {
       if ((event.keyCode == 13) && (event.target.type != "textarea")) {
         event.preventDefault();
         $("#game-list").empty();
+        $("h1.page-header").remove();
+        $(".main").prepend(`<h1 class="page-header">Result</h1>`)
         name = $("#title-name").val()
         $.get('https://afternoon-bastion-62299.herokuapp.com/product/' + name, function(data){
         for (var i = 0; i < data.length; i++) {
@@ -39,36 +48,14 @@ $(document).ready(function() {
     });
 
   $('#all').click(function(){
-    $.get('https://afternoon-bastion-62299.herokuapp.com/product/' + name, function(data){
-    for (var i = 0; i < data.length; i++) {
-      if(data[i].platform == "PS4")
-      {
-        consoleType = "PS4"
-      }
-      else if(data[i].platform == "XBOX ONE")
-      {
-        consoleType = "XBOX"
-      }
-      else if(data[i].platform == "SWITCH")
-      {
-        consoleType = "SWITCH"
-      }
-
-      $("#game-list").append(`<div id="${consoleType}" class="col-xs-6 col-sm-3 row-height">
-        <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
-        <h2 id="title-name">${data[i].title}</h2>
-        <p id="title-price"> Credit: $ ${data[i].price} </p>
-        <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
-        </button>
-      </div>`)
-      }
-    })
+    displayAll()
   })
 
   $('#PS4').click(function(){
     $.get('https://afternoon-bastion-62299.herokuapp.com/product/ps4', function(data){
       $("#game-list").empty();
+      $("h1.page-header").remove();
+      $(".main").prepend(`<h1 class="page-header">PS4</h1>`)
       for (var i = 0; i < data.length; i++) {
         $("#game-list").append(`<div id="PS4" class="col-xs-6 col-sm-3 row-height">
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
@@ -85,6 +72,8 @@ $(document).ready(function() {
   $('#XBOX').click(function(){
     $.get('https://afternoon-bastion-62299.herokuapp.com/product/xbox', function(data){
       $("#game-list").empty();
+      $("h1.page-header").remove();
+      $(".main").prepend(`<h1 class="page-header">XBOX ONE</h1>`)
       for (var i = 0; i < data.length; i++) {
         $("#game-list").append(`<div id="XBOX" class="col-xs-6 col-sm-3 row-height">
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
@@ -102,6 +91,8 @@ $(document).ready(function() {
     let itemName;
     $.get('https://afternoon-bastion-62299.herokuapp.com/product/switch' , function(data){
       $("#game-list").empty();
+      $("h1.page-header").remove();
+      $(".main").prepend(`<h1 class="page-header">SWITCH</h1>`)
       for (var i = 0; i < data.length; i++) {
         $("#game-list").append(`<div id="SWITCH" class="col-xs-6 col-sm-3 row-height">
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
@@ -207,6 +198,8 @@ $(document).ready(function() {
 function cartDisplay(){
 $.get('https://afternoon-bastion-62299.herokuapp.com/product/cart', function(data){
   $("#game-list").empty();
+  $("h1.page-header").remove();
+  $(".main").prepend(`<h1 class="page-header">Cart</h1>`)
 for (var i = 0; i < data.length; i++) {
   var dynamic = "";
   for (var j = 1; j < 5;j++){
@@ -224,11 +217,11 @@ for (var i = 0; i < data.length; i++) {
     <p id="title-price"> Credit: $ ${data[i].price} </p
     <div class="input-container row">
      <div class="input-box">
-      <button type="button" id="deleteItem" class="btn btn-default col-sm-6 col-xs-6" aria-label="Left Align">
+      <button type="button" id="deleteItem" class="btn btn-default col-sm-8 col-xs-6" aria-label="Left Align">
         <span class="glyphicon glyphicon-remove" aria-hidden="true">&nbsp;</span>Delete
       </button>
       <form>
-        <div class="form-group col-sm-4 col-xs-4">
+        <div class="form-group col-sm-4 col-xs-5">
           <select class="form-control" id="counter">
           ${dynamic}
           </select>
@@ -238,5 +231,36 @@ for (var i = 0; i < data.length; i++) {
     </div>
   </div>`)
   }
-})
+ })
+}
+
+function displayAll(){
+  $.get('https://afternoon-bastion-62299.herokuapp.com/product/' + name, function(data){
+    $("#game-list").empty();
+    $("h1.page-header").remove();
+    $(".main").prepend(`<h1 class="page-header">ALL</h1>`)
+  for (var i = 0; i < data.length; i++) {
+    if(data[i].platform == "PS4")
+    {
+      consoleType = "PS4"
+    }
+    else if(data[i].platform == "XBOX ONE")
+    {
+      consoleType = "XBOX"
+    }
+    else if(data[i].platform == "SWITCH")
+    {
+      consoleType = "SWITCH"
+    }
+
+    $("#game-list").append(`<div id="${consoleType}" class="col-xs-6 col-sm-3 row-height">
+      <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
+      <h2 id="title-name">${data[i].title}</h2>
+      <p id="title-price"> Credit: $ ${data[i].price} </p>
+      <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
+      </button>
+    </div>`)
+    }
+  })
 }
