@@ -1,4 +1,4 @@
-const loading = document.querySelector('.loading');
+https://gamerz13.herokuapp.com/const loading = document.querySelector('.loading');
 
 const token = localStorage.getItem('token')
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
         $("h1.page-header").remove();
         $(".main").prepend(`<h1 class="page-header">Result</h1>`)
         name = $("#title-name").val()
-        $.get('http://localhost:8080/product/' + name, function(data){
+        $.get('https://gamerz13.herokuapp.com/product/' + name, function(data){
         for (var i = 0; i < data.length; i++) {
           if(data[i].platform == "PS4")
           {
@@ -68,7 +68,7 @@ $(document).ready(function() {
   })
 
   $('#PS4').click(function(){
-    $.get('http://localhost:8080/product/ps4', function(data){
+    $.get('https://gamerz13.herokuapp.com/product/ps4', function(data){
       $("#game-list").empty();
       $("h1.page-header").remove();
       $(".main").prepend(`<h1 class="page-header">PS4</h1>`)
@@ -86,7 +86,7 @@ $(document).ready(function() {
   })
 
   $('#XBOX').click(function(){
-    $.get('http://localhost:8080/product/xbox', function(data){
+    $.get('https://gamerz13.herokuapp.com/product/xbox', function(data){
       $("#game-list").empty();
       $("h1.page-header").remove();
       $(".main").prepend(`<h1 class="page-header">XBOX ONE</h1>`)
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
   $('#SWITCH').click(function(){
     let itemName;
-    $.get('http://localhost:8080/product/switch' , function(data){
+    $.get('https://gamerz13.herokuapp.com/product/switch' , function(data){
       $("#game-list").empty();
       $("h1.page-header").remove();
       $(".main").prepend(`<h1 class="page-header">SWITCH</h1>`)
@@ -134,7 +134,7 @@ $(document).ready(function() {
     let parsedToken = parseJWT(token)
 
     $.ajax({
-      url:`http://localhost:8080/product/${parsedToken.id}/${id}`,
+      url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/${id}`,
       type:"PUT",
       data:{quantity},
       complete: function () {
@@ -154,7 +154,7 @@ $(document).ready(function() {
       let price = parseFloat($(this).prevAll('#title-price').text().match(numberPattern));
       let url = $(this).prevAll('#title-image').attr('src');
 
-      $.get(`http://localhost:8080/product/${parsedToken.id}/cart`, function(data){
+      $.get(`https://gamerz13.herokuapp.com/product/${parsedToken.id}/cart`, function(data){
 
           for (var i = 0; i < data.length; i++) {
 
@@ -163,7 +163,7 @@ $(document).ready(function() {
              if(data[i].quantity > 0 && data[i].title == title && data[i].platform == platform){
               number = data[i].quantity + 1;
               $.ajax({
-                url:`http://localhost:8080/product/${parsedToken.id}/${id}`,
+                url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/${id}`,
                 type:"PUT",
                 dataType: "json",
                 data:{
@@ -181,7 +181,7 @@ $(document).ready(function() {
           }
 
           if(!exist){
-            $.post(`http://localhost:8080/product/${parsedToken.id}`,
+            $.post(`https://gamerz13.herokuapp.com/product/${parsedToken.id}`,
             {
               title:title,
               platform:platform,
@@ -212,12 +212,12 @@ $(document).ready(function() {
     let id = $(this).parent().parent().before().attr('id')
 
     $.ajax({
-      url:`http://localhost:8080/product/${parsedToken.id}/${id}`,
+      url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/${id}`,
       type: 'DELETE'
     })
 
     $.ajax({
-      url:`http://localhost:8080/product/${parsedToken.id}/cart`,
+      url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/cart`,
       type:'get',
       dataType:'JSON',
       async:false,
@@ -241,7 +241,7 @@ console.log(data.length);
 
 function cartDisplay(){
   let parsedToken = parseJWT(token)
-  $.get(`http://localhost:8080/product/${parsedToken.id}/cart`)
+  $.get(`https://gamerz13.herokuapp.com/product/${parsedToken.id}/cart`)
     .then(function(data){
     $("#game-list").empty();
     $("h1.page-header").remove();
@@ -290,7 +290,7 @@ function cartDisplay(){
 }
 
 function displayAll(){
-  $.get('http://localhost:8080/product/', function(data){
+  $.get('https://gamerz13.herokuapp.com/product/', function(data){
     $("#game-list").empty();
     $("h1.page-header").remove();
     $(".main").prepend(`<h1 class="page-header">ALL</h1>`)
@@ -342,7 +342,7 @@ function logIn(event) {
   }
   data = {email,password}
 
-  $.post("http://localhost:8080/auth/login", data)
+  $.post("https://gamerz13.herokuapp.com/auth/login", data)
     .then(response => {
       if(response.error) {
         alert(response.error)
@@ -367,7 +367,7 @@ function signUp(event,){
   }
     data = {username, email, password}
 
-  $.post("http://localhost:8080/auth/signup", data)
+  $.post("https://gamerz13.herokuapp.com/auth/signup", data)
     .then(response => {
       if (!response || response.error) {
         alert("Email Address Already in Use")
@@ -477,7 +477,7 @@ function getDataforTotal() {
   let parsedToken = parseJWT(token)
 
   $.ajax({
-    url:`http://localhost:8080/product/${parsedToken.id}/cart`,
+    url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/cart`,
     type:'get',
     dataType:'JSON',
     async:false,
