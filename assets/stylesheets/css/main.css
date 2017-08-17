@@ -3,17 +3,85 @@
   width: 100%
 }
 
-.row-height{
-  min-height: 42em;
+.logout {
+  margin-top: -0.9em;
+  margin-right: 0.5em;
 }
 
+.row-height{
+  margin-top: 2em;
+  min-height: 39em;
+}
+
+.main-title {
+  font-size: 28px;
+  font-family: 'Lobster', cursive;
+}
+
+.main-logo {
+  margin-right: 1em;
+  margin-top: 0.6em;
+  width: 2.6em;
+  height: 2.6em;
+}
+
+.head {
+  margin-bottom: 0.1em;
+}
+
+.sidebar {
+  z-index: 10;
+  background-size: 140% 25%;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: bottom 34px left -36px;
+  background-image: url('http://wallup.net/wp-content/uploads/2016/01/220266-Portal-simple_background-black_background-minimalism-video_games-Valve-Portal_2-humor.jpg');
+}
+
+
 #game-list p {
-  font-size: 1.5em;
+  font-family: 'Rye', cursive;
+  font-size: 1.1em;
+  font-weight: 200
+}
+
+#game-list h2 {
+  font-family: 'Bungee Shade', cursive;
+}
+
+.signup-button {
+  margin-top: -0.8em;
+  margin-right: 1em;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+.calculate {
+  float: right;
+}
+
+.footer-color {
+  z-index: 0;
+  width: 100%;
+  background-color: rgb(255, 0, 0);
 }
 
 .cart-box{
   min-height: 42em;
   margin-bottom: 4em;
+}
+
+#addCart {
+  position: absolute;
+  bottom: 0;
+}
+
+#title-price {
+  position: absolute;
+  left: 1em;
+  bottom: 3.2em;
 }
 
 .input-box{
@@ -26,13 +94,89 @@
   position: relative;
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+
+/*576px*/
+@media (min-width: 220px) and (max-width: 767px) {
+
+  .signup {
+    margin-top: 0.2em;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+  }
+
+  .item-counter{
+    padding-left: 0.2em;
+  }
+
+  .sidebar {
+    background-size: 60% 60%;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: bottom right -10px;
+  }
+
+  #search {
+    width: 14em
+  }
+
+  .title-image{
+    height: 18em;
+    width: 100%
+  }
+
+  .cart-box {
+    min-height: 34em;
+  }
+
+  .row-height {
+    min-height: 34em;
+  }
+
+  #addCart {
+    position: absolute;
+    bottom: 0;
+  }
+
+  #title-price {
+    position: absolute;
+    left: 1em;
+    bottom: 3em;
+  }
+
+  #game-list h2 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.5em;
+  }
+
+  .nav-sidebar > li > a:hover {
+    background-color: rgba(175,100,100,0.3);
+    color:#eb7c7c;
+  }
+
+  .nav-sidebar > .active > a,
+  .nav-sidebar > .active > a:hover,
+  .nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: rgba(175,0,0,0.8);
+  }
+
  }
 
 
 @media (min-width: 768px) and (max-width: 991px) {
   .title-image{
-    height: 14em;
+    height: 20em;
     width: 100%
+  }
+  .item-counter{
+    padding-left: 0.2em;
+  }
+
+  .cart-box {
+    width: 18em;
+  }
+
+  .item-container{
+    width: 18em;
   }
  }

@@ -4,28 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
     <title>Gamer'z</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <link href="./assets/stylesheets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
     <link href="./assets/stylesheets/css/dashboard.css" rel="stylesheet">
     <link href="./assets/stylesheets/css/main.css" rel="stylesheet">
-
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-
-    <!-- Optional theme -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
   </head>
 
   <body>
@@ -39,38 +31,38 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a id="all" class="navbar-brand" href="#">Gamer'z</a>
+          <img class="main-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Video-Game-Controller-Icon-IDV-edit.svg/768px-Video-Game-Controller-Icon-IDV-edit.svg.png" alt="website logo">
+          <a class="allDisplay main-title navbar-brand navbar-right" href="#">Gamer'z</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form id="search" class="navbar-form navbar-right">
-            <input type="text" class="form-control" id="title-name" placeholder="Search...">
-          </form>
+        <div id="navbar" class="head navbar-collapse collapse">
+          <ul>
+            <li>
+              <form id="search" class="nav navbar-form navbar-right">
+                <input type="text" class="form-control" id="title-name" placeholder="Search...">
+              </form>
+            </li>
+            <li id="signForm"></li>
+          </ul>
+
         </div>
       </div>
     </nav>
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a id="all" href="#">ALL<span class="sr-only">(current)</span></a></li>
+          <ul class="side-menu nav nav-sidebar">
+            <li class="active"><a class="allDisplay" href="#">ALL<span class="sr-only">(current)</span></a></li>
             <li><a id="PS4" href="#">PS4</a></li>
             <li><a id="XBOX" href="#">XBOX ONE</a></li>
             <li><a id="SWITCH" href="#">SWITCH</a></li>
-            <li><a id="cart" href="#">CART</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
           <div class="row" id="game-list">
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
