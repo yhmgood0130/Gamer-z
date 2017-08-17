@@ -1,8 +1,7 @@
-https://gamerz13.herokuapp.com/const loading = document.querySelector('.loading');
+const loading = document.querySelector('.loading');
 
 const token = localStorage.getItem('token')
 
-// https://afternoon-bastion-62299.herokuapp.com/product/
 
 $(document).ready(function() {
   let status = authorizeUser();
