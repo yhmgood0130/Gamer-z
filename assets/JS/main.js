@@ -224,7 +224,6 @@ $(document).ready(function() {
       }
     });
 
-console.log(data.length);
     if (data.length > 0) {
       for (var i = 0; i < data.length - 1; i++) {
         total += data[i].price * data[i].quantity
