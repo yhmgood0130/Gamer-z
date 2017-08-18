@@ -51,7 +51,7 @@ $(document).ready(function() {
               <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
               <h4 id="title-name">${data[i].title}</h4>
               <p id="title-price"> Credit: $ ${data[i].price} </p>
-              <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
+              <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#userAuth">
                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
               </button>
             </div>`)
@@ -75,7 +75,7 @@ $(document).ready(function() {
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
           <h2 id="title-name">${data[i].title}</h2>
           <p id="title-price"> Credit: $ ${data[i].price} </p>
-          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
+          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#userAuth">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
           </button>
         </div>`)
@@ -93,7 +93,7 @@ $(document).ready(function() {
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
           <h2 id="title-name">${data[i].title}</h2>
           <p id="title-price"> Credit: $ ${data[i].price} </p>
-          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
+          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#userAuth">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
           </button>
         </div>`)
@@ -112,7 +112,7 @@ $(document).ready(function() {
           <img id="title-image" src=${data[i].url} class="img-responsive title-image" alt="Generic placeholder thumbnail">
           <h2 id="title-name">${data[i].title}</h2>
           <p id="title-price"> Credit: $ ${data[i].price} </p>
-          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align">
+          <button type="button" id="addCart" class="btn btn-default" aria-label="Left Align" data-toggle="modal" data-target="#userAuth">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">&nbsp;</span>Add Cart
           </button>
         </div>`)

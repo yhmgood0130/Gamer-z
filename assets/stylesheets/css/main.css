@@ -26,7 +26,7 @@
 }
 
 .head {
-  margin-bottom: 0.1em;
+  margin-bottom: 2.5em;
 }
 
 .sidebar {
@@ -50,7 +50,7 @@
 }
 
 .signup-button {
-  margin-top: -0.8em;
+  margin-top: -0.7em;
   margin-right: 1em;
 }
 
@@ -71,6 +71,10 @@ hr {
 .cart-box{
   min-height: 48em;
   margin-bottom: 4em;
+}
+
+#search {
+  margin-top: 0.7em;
 }
 
 #addCart {
@@ -98,6 +102,26 @@ hr {
 /*576px*/
 @media (min-width: 220px) and (max-width: 767px) {
 
+  .navbar-fixed-top
+    {
+      position: relative;
+      top: -3.6em;
+    }
+
+  .signup-button {
+    margin-top: -0.76em;
+    margin-left: 3em;
+  }
+
+  .mobile-row {
+    margin-top: -5em;
+  }
+
+  #search {
+    margin-left: -3.2em;
+  }
+
+
   .signup {
     margin-top: 0.2em;
     margin-right: 1em;
@@ -113,10 +137,6 @@ hr {
     background-color: black;
     background-repeat: no-repeat;
     background-position: bottom right -10px;
-  }
-
-  #search {
-    width: 14em
   }
 
   .title-image{
