@@ -1,7 +1,6 @@
 const loading = document.querySelector('.loading');
 
-const token = localStorage.getItem('token')
-
+const token = localStorage.getItem('token');
 
 $(document).ready(function() {
   let status = authorizeUser();
