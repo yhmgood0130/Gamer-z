@@ -158,7 +158,7 @@ $(document).ready(function() {
 
             let id = data[i].id
 
-             if(data[i].quantity > 0 && data[i].title == title && data[i].platform == platform){
+             if(data[i].quantity < 10 && data[i].quantity > 0 && data[i].title == title && data[i].platform == platform){
               number = data[i].quantity + 1;
               $.ajax({
                 url:`https://gamerz13.herokuapp.com/product/${parsedToken.id}/${id}`,
@@ -170,11 +170,18 @@ $(document).ready(function() {
                 complete: function(data) {
                   $("#game-list").prepend(`<div class="alert alert-info alert-dismissable">
                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                            <strong>Added to Cart!</strong> ${title} has been added to your cart.
+                                            <strong>Added to Carta!</strong> ${title} has been added to your cart.
                                           </div>`)
                 }
                })
                exist = true;
+              }
+              else if(data[i].quantity == 10){
+                $("#game-list").prepend(`<div class="alert alert-danger alert-dismissable">
+                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                          <strong>Oops!</strong> ${title} has reached the maximum number in your cart.
+                                        </div>`)
+                exist = true;
               }
           }
 
