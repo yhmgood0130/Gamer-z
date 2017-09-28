@@ -40,7 +40,7 @@ Heroku/postgreSQL were used [Google Firebase](https://firebase.google.com/) to s
 
 * Front-end - CSS, HTML, Javascript, jQuery, AJAX, Bootstrap, Firebase
 
-* Back-end - Node.js, Express, postgrSQL, Datbases, Knex, CORS, Heroku (Back-end)
+* Back-end - Node.js, Express, postgrSQL, Datbases, Knex, CORS, bCrypt, Joi, Heroku (Back-end)
 
 * [Server-Side Repo](https://github.com/yhmgood0130/galvanize-gamerz/)
 
